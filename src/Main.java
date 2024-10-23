@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /*
@@ -11,8 +13,34 @@ import java.util.Scanner;
 */
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        Scanner scanner=new Scanner(System.in);
+        Sender mailDeliveryServiceExample = new Sender();
+
+        //створимо список з способом доставки
+        List<MailDeliveryService> services = new ArrayList<>();
+        services.add(new DHL());
+        services.add(new Email());
+        services.add(new Owl());
+
+        //виведем варіанти на екран
+        System.out.println("Виберіть спосіб відпрвки пошти: ");
+        System.out.println("1. DHL");
+        System.out.println("2. E-Mail");
+        System.out.println("3. Owl");
+
+        int choice = scanner.nextInt();
+
+        //перевірка вибору користувача в межах індекса
+        if (choice>=1 && choice<= services.size()){
+            MailDeliveryService service = services.get(choice-1);
+            mailDeliveryServiceExample.send(service);
+
+        }else {
+            System.out.println("Not found");
+        }
+
+
 
 
     }
