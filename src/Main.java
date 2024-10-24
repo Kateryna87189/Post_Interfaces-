@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Sender mailDeliveryServiceExample = new Sender();
+        MailDeliveryServiceExample mailDeliveryServiceExample = new MailDeliveryServiceExample();
 
         //створимо список з способом доставки
         List<MailDeliveryService> services = new ArrayList<>();
